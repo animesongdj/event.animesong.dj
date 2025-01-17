@@ -22,6 +22,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+      - name: Install dependencies
+        run: |
+          gem install nokogiri
+          gem install open-uri
+      - name: Scrape Twipla
+        run: |
+          ruby scrape_twipla.rb
+
   # Build job
   build:
     runs-on: ubuntu-latest
