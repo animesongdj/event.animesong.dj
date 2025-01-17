@@ -38,7 +38,9 @@ jobs:
       - name: Scrape Twipla
         run: |
           ruby scrape_twipla.rb
-
+      - name: Convert JSON to Markdown
+        run: |
+          ruby json_to_md.rb
   # Build job
   build:
     runs-on: ubuntu-latest

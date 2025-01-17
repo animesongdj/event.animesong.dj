@@ -2,55 +2,74 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri'
 require 'fileutils'
+require 'json'
+require 'time'
 
 def scrape_twipla_search(query, page = 1)
   encoded_query = URI.encode_www_form_component(query)
   search_url = "https://twipla.jp/events/search/page~#{page}/keyword~#{encoded_query}/"
-  html = URI.open(search_url)
-  doc = Nokogiri::HTML(html)
-
-  # Save HTML to file
-  FileUtils.mkdir_p('html')
-  html_filename = "html/twipla_search_#{Time.now.strftime('%Y-%m-%d_%H-%M-%S')}.html"
-  File.open(html_filename, 'w') { |file| file.write(html) }
+  html = URI.open(search_url).read
+  doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
 
   events = []
 
   doc.css('ol.links li').each do |event|
-    title = event.css('span.status-body span.black').text.strip
     link_element = event.css('a').first
-    link = link_element ? link_element['href'] : 'リンクなし'
-    date = event.css('span.status-body strong.black').text.strip
-    description = event.css('span.status-body span.graysmall').text.strip
+    next unless link_element # リンクがない場合はスキップ
+    link = link_element['href']
+    event_url = "https://twipla.jp#{link}"
+
+    location_element = event.css('span.status-body span.black').last
+    next unless location_element # 場所がない場合はスキップ
+    location = location_element.text.strip
+
+    # 各イベントページにアクセスして詳細を取得
+    event_html = URI.open(event_url).read
+    event_doc = Nokogiri::HTML.parse(event_html, nil, 'UTF-8')
+
+    title = event_doc.css('h1').text.strip
+    description_element = event_doc.css('div#event_main p').first
+    description = description_element ? description_element.text.strip : '説明なし'
+    flyer_element = event_doc.css('img[src^="/imgs/"]').first
+    flyer = flyer_element ? "https://twipla.jp#{flyer_element['src']}" : 'フライヤーなし'
+    organizer_element = event_doc.css('a[href^="/users/"]').first
+    organizer_name = organizer_element ? organizer_element.text.strip : '主催者なし'
+    organizer_url = organizer_element ? "https://twipla.jp#{organizer_element['href']}" : 'リンクなし'
+
+    date_element = event.css('span.status-body strong.black').first
+    date = date_element ? date_element.text.strip : '日付なし'
 
     events << {
-      title: title,
-      link: link,
-      date: date,
-      description: description
+      "@context": "https://schema.org",
+      "@type": "MusicEvent",
+      "name": title,
+      "url": event_url,
+      "startDate": date,
+      "description": description,
+      "image": flyer,
+      "location": {
+        "@type": "Place",
+        "name": location
+      },
+      "organizer": {
+        "@type": "Person",
+        "name": organizer_name,
+        "url": organizer_url
+      }
     }
+
+    # 1秒のディレイを追加
+    sleep 1
   end
 
   events
 end
 
-def generate_markdown(events)
-  FileUtils.mkdir_p('_posts')
-  filename = "_posts/#{Time.now.strftime('%Y-%m-%d')}-twipla-events.md"
+def generate_json_ld(events)
+  FileUtils.mkdir_p('json-ld')
+  filename = "json-ld/twipla_events_#{Time.now.strftime('%Y-%m-%d')}.json"
   File.open(filename, 'w') do |file|
-    file.puts "---"
-    file.puts "layout: post"
-    file.puts "title: 'Twipla イベント一覧'"
-    file.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
-    file.puts "---"
-    file.puts
-    events.each do |event|
-      file.puts "## #{event[:title]}"
-      file.puts "- **リンク**: [#{event[:link]}](#{event[:link]})"
-      file.puts "- **日付**: #{event[:date]}"
-      file.puts "- **説明**: #{event[:description]}"
-      file.puts
-    end
+    file.puts JSON.pretty_generate(events)
   end
 end
 
@@ -58,6 +77,6 @@ if __FILE__ == $0
   query = 'アニソンDJ'
   page = 1
   events = scrape_twipla_search(query, page)
-  generate_markdown(events)
-  puts "Markdown file and HTML file generated successfully."
+  generate_json_ld(events)
+  puts "JSON-LD file generated successfully."
 end
