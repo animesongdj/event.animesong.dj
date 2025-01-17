@@ -1,13 +1,18 @@
 require 'json'
 require 'fileutils'
 require 'time'
+require 'nokogiri'
+require 'open-uri'
 
 def json_to_md(json_file)
   events = JSON.parse(File.read(json_file))
   events.each do |event|
     date = Time.parse(event['startDate']).strftime('%Y-%m-%d')
-    title = event['name']
-    sanitized_title = title.gsub(/[^0-9A-Za-z.\-]/, '_')[0, 50] # タイトルを50文字に制限し、無効な文字を置換
+    event_url = event['url']
+    event_html = URI.open(event_url).read
+    event_doc = Nokogiri::HTML.parse(event_html, nil, 'UTF-8')
+    title = event_doc.at("meta[property='og:title']")['content'].sub(' - TwiPla', '')
+    sanitized_title = title.gsub(/[\/:*?"<>|]/, '').strip.gsub(/\s+/, '-')[0, 50] # タイトルを50文字に制限し、無効な文字を除去
     filename = "_posts/#{date}-#{sanitized_title}.md"
     
     content = <<~MARKDOWN
@@ -36,6 +41,9 @@ def json_to_md(json_file)
       file.write(content)
     end
     puts "Generated: #{filename}"
+    
+    # 1秒のディレイを追加
+    sleep 1
   end
 end
 
