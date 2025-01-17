@@ -50,7 +50,7 @@ jobs:
           destination: ./_site
       - name: Copy json-ld
         run: |
-          cp -r json-ld _site/
+          cp -r ./json-ld ./_site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
