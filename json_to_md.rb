@@ -21,6 +21,7 @@ def json_to_md(json_file)
       og_description: "#{event['description']}"
       og_image: "#{event['image']}"
       og_url: "#{event['url']}"
+      twitter_card: "summary_large_image"
       ---
       
       ## #{title}
