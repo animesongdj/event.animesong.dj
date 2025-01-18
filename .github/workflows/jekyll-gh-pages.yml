@@ -66,13 +66,21 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Prepare gh-pages branch
+        run: |
+          mkdir gh-pages
+          cd gh-pages
+          git init
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cd ..
       - name: Deploy to GitHub Pages
         run: |
+          cp -r _site/* gh-pages/
+          cd gh-pages
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout gh-pages
-          git rm -rf --ignore-unmatch !(_site|index.md)
-          cp -r _site/* .
           git add .
           git commit -m 'Deploy to GitHub Pages'
           git push origin gh-pages --force
