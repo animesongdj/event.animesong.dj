@@ -84,12 +84,13 @@ end
 
 def generate_json_ld(events)
   FileUtils.mkdir_p('json-ld')
-  events.group_by { |event| event[:startDate] }.each do |date, events_on_date|
+  events.group_by { |event| event[:startDate].split(' ').first.split('-').first(2).join('-') }.each do |date, events_on_date|
     formatted_date = date.gsub('/', '-')
     filename = "json-ld/twipla_events_#{formatted_date}.json"
     File.open(filename, 'w') do |file|
       file.puts JSON.pretty_generate(events_on_date)
     end
+    puts "Generated JSON-LD file: #{filename}"
   end
 end
 
