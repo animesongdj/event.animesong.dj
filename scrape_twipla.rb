@@ -5,7 +5,7 @@ require 'fileutils'
 require 'json'
 require 'time'
 
-def scrape_twipla_search(query, page = 1)
+def scrape_twipla_search(query, existing_urls, page = 1)
   encoded_query = URI.encode_www_form_component(query)
   search_url = "https://twipla.jp/events/search/page~#{page}/keyword~#{encoded_query}/"
   html = URI.open(search_url).read
@@ -18,6 +18,9 @@ def scrape_twipla_search(query, page = 1)
     next unless link_element # リンクがない場合はスキップ
     link = link_element['href']
     event_url = "https://twipla.jp#{link}"
+
+    # 既存のJSON-LDと重複する場合は終了
+    return events if existing_urls.include?(event_url)
 
     location_element = event.css('span.status-body span.black').last
     next unless location_element # 場所がない場合はスキップ
@@ -66,7 +69,15 @@ def scrape_twipla_search(query, page = 1)
     sleep 1
   end
 
-  events
+  # イベント件数が10件を下回る場合は終了
+  return events if events.size < 10
+
+  # 次へのリンクが切れている場合は終了
+  next_link = doc.at('a:contains("次へ")')
+  return events unless next_link
+
+  # 次のページを再帰的にスクレイピング
+  events + scrape_twipla_search(query, existing_urls, page + 1)
 end
 
 def generate_json_ld(events)
@@ -79,8 +90,9 @@ end
 
 if __FILE__ == $0
   query = 'アニソンDJ'
-  page = 1
-  events = scrape_twipla_search(query, page)
+  existing_events = JSON.parse(File.read('json-ld/twipla_events_2025-01-18.json')) rescue []
+  existing_urls = existing_events.map { |event| event['url'] }
+  events = scrape_twipla_search(query, existing_urls)
   generate_json_ld(events)
   puts "JSON-LD file generated successfully."
 end
