@@ -66,6 +66,15 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Ensure gh-pages branch exists
+        run: |
+          if ! git show-ref --quiet refs/heads/gh-pages; then
+            git checkout --orphan gh-pages
+            git reset --hard
+            git commit --allow-empty -m "Initial gh-pages commit"
+            git push origin gh-pages
+            git checkout -
+          fi
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.name 'github-actions[bot]'
