@@ -5,7 +5,7 @@ require 'fileutils'
 require 'json'
 require 'time'
 
-def scrape_twipla_search(query, existing_urls, page = 1)
+def scrape_twipla_search(query, existing_urls, existing_events, page = 1)
   encoded_query = URI.encode_www_form_component(query)
   search_url = "https://twipla.jp/events/search/page~#{page}/keyword~#{encoded_query}/"
   puts "Scraping page #{page}: #{search_url}"
@@ -20,8 +20,13 @@ def scrape_twipla_search(query, existing_urls, page = 1)
     link = link_element['href']
     event_url = "https://twipla.jp#{link}"
 
-    # 既存のJSON-LDと重複する場合は終了
-    return events if existing_urls.include?(event_url)
+    # 既存のJSON-LDと重複する場合は既存のデータを採用
+    if existing_urls.include?(event_url)
+      puts "Event URL already exists: #{event_url}"
+      existing_event = existing_events.find { |e| e['url'] == event_url }
+      events << existing_event if existing_event
+      next
+    end
 
     location_element = event.css('span.status-body span.black').last
     next unless location_element # 場所がない場合はスキップ
@@ -79,12 +84,12 @@ def scrape_twipla_search(query, existing_urls, page = 1)
   return events unless next_link
 
   # 次のページを再帰的にスクレイピング
-  events + scrape_twipla_search(query, existing_urls, page + 1)
+  events + scrape_twipla_search(query, existing_urls, existing_events, page + 1)
 end
 
 def generate_json_ld(events)
   FileUtils.mkdir_p('json-ld')
-  events.group_by { |event| event[:startDate].split(' ').first.split('-').first(2).join('-') }.each do |date, events_on_date|
+  events.group_by { |event| event[:startDate].split(' ').first }.each do |date, events_on_date|
     formatted_date = date.gsub('/', '-')
     filename = "json-ld/twipla_events_#{formatted_date}.json"
     File.open(filename, 'w') do |file|
@@ -96,9 +101,9 @@ end
 
 if __FILE__ == $0
   query = 'アニソンDJ'
-  existing_events = Dir.glob('json-ld/*.json').flat_map { |file| JSON.parse(File.read(file)) } rescue []
+  existing_events = Dir.glob('./gh-pages/json-ld/*.json').flat_map { |file| JSON.parse(File.read(file)) } rescue []
   existing_urls = existing_events.map { |event| event['url'] }
-  events = scrape_twipla_search(query, existing_urls)
+  events = scrape_twipla_search(query, existing_urls, existing_events)
   generate_json_ld(events)
   puts "JSON-LD files generated successfully."
 end

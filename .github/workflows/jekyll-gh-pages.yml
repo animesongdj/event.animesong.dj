@@ -22,6 +22,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Clone repository
+        run: |
+          mkdir gh-pages
+          cd gh-pages
+          git init
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git fetch origin gh-pages
+          git checkout gh-pages
+          cd ..
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
