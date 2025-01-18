@@ -36,6 +36,10 @@ def scrape_twipla_search(query, page = 1)
     organizer_name = organizer_element ? organizer_element.text.strip : '主催者なし'
     organizer_url = organizer_element ? "https://twipla.jp#{organizer_element['href']}" : 'リンクなし'
 
+    # 場所の後にある店舗名を取得
+    venue_element = event_doc.at('div.bluetext:contains("場所") + div')
+    venue = venue_element ? venue_element.text.strip.gsub('道順を調べる', '') : '店舗名なし'
+
     date_element = event.css('span.status-body strong.black').first
     date = date_element ? date_element.text.strip : '日付なし'
 
@@ -49,7 +53,7 @@ def scrape_twipla_search(query, page = 1)
       "image": flyer,
       "location": {
         "@type": "Place",
-        "name": location
+        "name": venue
       },
       "organizer": {
         "@type": "Person",
