@@ -31,16 +31,11 @@ jobs:
       - name: Scrape Twipla
         run: |
           ruby scrape_twipla.rb
-      - name: Convert JSON to Markdown
-        run: |
-          ruby json_to_md.rb
-      - name: Commit and Push Markdown files
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add _posts/*.md
-          git commit -m 'Add new posts from Twipla'
-          git push origin main
+      - name: Upload JSON artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: twipla-json
+          path: json-ld/*.json
 
   build:
     runs-on: ubuntu-latest
@@ -48,6 +43,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+      - name: Download JSON artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: twipla-json
+          path: json-ld
+      - name: Install dependencies
+        run: |
+          gem install nokogiri
+          gem install open-uri
+      - name: Convert JSON to Markdown
+        run: |
+          ruby json_to_md.rb
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
@@ -56,10 +67,15 @@ jobs:
           source: ./
           destination: ./_site
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: ./_site
+      - name: Upload _posts artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: posts
+          path: ./_posts
 
   deploy:
     environment:
@@ -73,3 +89,8 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact: github-pages
+      - name: Download _posts artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: posts
+          path: ./_posts
