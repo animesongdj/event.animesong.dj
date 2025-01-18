@@ -83,6 +83,9 @@ def scrape_twipla_search(query, existing_urls, existing_events, page = 1)
   next_link = doc.at('a:contains("次へ")')
   return events unless next_link
 
+  # 1秒のディレイを追加
+  sleep 1
+
   # 次のページを再帰的にスクレイピング
   events + scrape_twipla_search(query, existing_urls, existing_events, page + 1)
 end
