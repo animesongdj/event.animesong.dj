@@ -39,6 +39,9 @@ def scrape_twipla_search(query, page = 1)
     date_element = event.css('span.status-body strong.black').first
     date = date_element ? date_element.text.strip : '日付なし'
 
+    location_element = event_doc.css('span.status-body span.black').last
+    location = location_element ? location_element.text.strip : '場所なし'
+
     events << {
       "@context": "https://schema.org",
       "@type": "MusicEvent",
