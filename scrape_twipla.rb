@@ -27,7 +27,7 @@ def scrape_twipla_search(query, page = 1)
     event_html = URI.open(event_url).read
     event_doc = Nokogiri::HTML.parse(event_html, nil, 'UTF-8')
 
-    title = event_doc.css('h1').text.strip
+    title = event_doc.css('title').text.strip.gsub(' - TwiPla', '')
     description_element = event_doc.css('div#event_main p').first
     description = description_element ? description_element.text.strip : '説明なし'
     flyer_element = event_doc.css('img[src^="/imgs/"]').first
