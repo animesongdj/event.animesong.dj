@@ -32,7 +32,7 @@ jobs:
         run: |
           ruby scrape_twipla.rb
       - name: Upload JSON artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: twipla-json
           path: json-ld/*.json
@@ -48,7 +48,7 @@ jobs:
         with:
           ruby-version: '3.0'
       - name: Download JSON artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: twipla-json
           path: json-ld
@@ -67,12 +67,12 @@ jobs:
           source: ./
           destination: ./_site
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
           path: ./_site
       - name: Upload _posts artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: posts
           path: ./_posts
@@ -90,7 +90,7 @@ jobs:
         with:
           artifact: github-pages
       - name: Download _posts artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: posts
           path: ./_posts
