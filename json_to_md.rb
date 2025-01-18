@@ -8,9 +8,9 @@ def json_to_md(json_file)
   events.each do |event|
     date = Time.parse(event['startDate']).strftime('%Y-%m-%d')
     title = event['name']
-    sanitized_title = title.gsub(/[\/:*?"<>|]/, '').strip.gsub(/\s+/, '-')
-    encoded_title = URI.encode_www_form_component(sanitized_title)[0, 50] # タイトルを50文字に制限し、URLエンコード
-    filename = "_posts/#{date}-#{encoded_title}.md"
+    event_url = event['url']
+    filename_part = event_url.split('/').last
+    filename = "_posts/#{date}-#{filename_part}.md"
     
     content = <<~MARKDOWN
       ---
