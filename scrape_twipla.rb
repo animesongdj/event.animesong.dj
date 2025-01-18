@@ -8,6 +8,7 @@ require 'time'
 def scrape_twipla_search(query, existing_urls, page = 1)
   encoded_query = URI.encode_www_form_component(query)
   search_url = "https://twipla.jp/events/search/page~#{page}/keyword~#{encoded_query}/"
+  puts "Scraping page #{page}: #{search_url}"
   html = URI.open(search_url).read
   doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
 
@@ -27,6 +28,7 @@ def scrape_twipla_search(query, existing_urls, page = 1)
     location = location_element.text.strip
 
     # 各イベントページにアクセスして詳細を取得
+    puts "Fetching event details: #{event_url}"
     event_html = URI.open(event_url).read
     event_doc = Nokogiri::HTML.parse(event_html, nil, 'UTF-8')
 
@@ -83,7 +85,8 @@ end
 def generate_json_ld(events)
   FileUtils.mkdir_p('json-ld')
   events.group_by { |event| event[:startDate] }.each do |date, events_on_date|
-    filename = "json-ld/twipla_events_#{date}.json"
+    formatted_date = date.gsub('/', '-')
+    filename = "json-ld/twipla_events_#{formatted_date}.json"
     File.open(filename, 'w') do |file|
       file.puts JSON.pretty_generate(events_on_date)
     end
