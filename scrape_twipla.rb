@@ -82,17 +82,19 @@ end
 
 def generate_json_ld(events)
   FileUtils.mkdir_p('json-ld')
-  filename = "json-ld/twipla_events_#{Time.now.strftime('%Y-%m-%d')}.json"
-  File.open(filename, 'w') do |file|
-    file.puts JSON.pretty_generate(events)
+  events.group_by { |event| event[:startDate] }.each do |date, events_on_date|
+    filename = "json-ld/twipla_events_#{date}.json"
+    File.open(filename, 'w') do |file|
+      file.puts JSON.pretty_generate(events_on_date)
+    end
   end
 end
 
 if __FILE__ == $0
   query = 'アニソンDJ'
-  existing_events = JSON.parse(File.read('json-ld/twipla_events_2025-01-18.json')) rescue []
+  existing_events = Dir.glob('json-ld/*.json').flat_map { |file| JSON.parse(File.read(file)) } rescue []
   existing_urls = existing_events.map { |event| event['url'] }
   events = scrape_twipla_search(query, existing_urls)
   generate_json_ld(events)
-  puts "JSON-LD file generated successfully."
+  puts "JSON-LD files generated successfully."
 end
