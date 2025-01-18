@@ -1,0 +1,56 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "あるけみすと 【#エロゲソングDay 特大号】in両国",
+    "url": "https://twipla.jp/events/658773",
+    "startDate": "2025/02/08 13:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/899115372288351.png",
+    "location": {
+      "@type": "Place",
+      "name": "両国 アニソンDJ BAR『あるけみっ!!』"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "ゆひの",
+      "url": "https://twipla.jp/users/yuhino_51001F"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "WORLD OTAKU MUSEUM-2025WINTER- #ワルオタ",
+    "url": "https://twipla.jp/events/641128",
+    "startDate": "2025/02/08 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2411/352745155410508.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "YOKOHAMA COAST garage+"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "WORLD OTAKU MUSEUM：#",
+      "url": "https://twipla.jp/users/WARUOTA"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "2/8(土) #アキライブ ！ vol.1 -#雷神 (秋葉原) 14時～ -ラブライブシリーズ楽曲メインのDJイベント-",
+    "url": "https://twipla.jp/events/647051",
+    "startDate": "2025/02/08 昼",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/391201433678279.png",
+    "location": {
+      "@type": "Place",
+      "name": "東京都千代田区神田佐久間町2-10-25"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "ヤマダ部長",
+      "url": "https://twipla.jp/users/shuu_ymd"
+    }
+  }
+]

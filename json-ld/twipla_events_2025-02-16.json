@@ -1,0 +1,56 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "2025年2月16日(日)11:00-19:00『けやきでアニクラやってみる』#けやクラ",
+    "url": "https://twipla.jp/events/624391",
+    "startDate": "2025/02/16 11:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2407/969306598100602.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "けやきひろば"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "ぷれい🍀雨宮天さん",
+      "url": "https://twipla.jp/users/sora_ama_pray"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "UN;TAKE VOL.1４　＃あんていく",
+    "url": "https://twipla.jp/events/650088",
+    "startDate": "2025/02/16 12:30",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/987707054101423.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "PublicBarロードショー　〒670-0904 兵庫県姫路市塩町７２ 樅ビル"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "UN;TAKE▶️次回２/１６ VOL.",
+      "url": "https://twipla.jp/users/untake_subcul"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "今期のアニメの曲を流したい！2025冬 #今たい",
+    "url": "https://twipla.jp/events/657789",
+    "startDate": "2025/02/16 13:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/813378897643096.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "すた〜ず@AKIBA"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "げーまー(げま)",
+      "url": "https://twipla.jp/users/gemachin"
+    }
+  }
+]

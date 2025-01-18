@@ -1,0 +1,20 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "5年アニクラ Vol.27(秋葉原) 1/28(火) #雷神",
+    "url": "https://twipla.jp/events/650251",
+    "startDate": "2025/01/28 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/816391470632242.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "店舗名なし"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "*:.｡･*✿白羽✿*･:.｡.:*ﾟ",
+      "url": "https://twipla.jp/users/otosigamixxxx"
+    }
+  }
+]

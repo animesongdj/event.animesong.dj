@@ -1,0 +1,56 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "千葉県津田沼アニクラ「ふらっとオタクソング聞きに来る休日(ホリデー)」ふらホリ vol.44",
+    "url": "https://twipla.jp/events/646402",
+    "startDate": "2025/02/09 12:30",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/141501044588904.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "千葉県船橋市前原西2-1-5 ヤナギヤビル 1F"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Taka",
+      "url": "https://twipla.jp/users/Taka90841"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "アニかわベース！Vol.7～アニメ×かわいい×ベース＝オタクダンスミュージック【ODM】～",
+    "url": "https://twipla.jp/events/654488",
+    "startDate": "2025/02/09 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/313838217653041.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "東京都八王子市三崎町1-6 カーサF・K 2階 アニソンDJバーGluck"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Wedan@NEMAKI",
+      "url": "https://twipla.jp/users/wedan_nemaki"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "【2025年2月9日(日)13時50分開始】MILK BACK DROP96【アニメ好きのためのアニソンDJパーティ！】",
+    "url": "https://twipla.jp/events/658056",
+    "startDate": "2025/02/09 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/713005808513239.png",
+    "location": {
+      "@type": "Place",
+      "name": "なんばミルラリ"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "MILK BACK DROP vol.9",
+      "url": "https://twipla.jp/users/MBD20170114"
+    }
+  }
+]

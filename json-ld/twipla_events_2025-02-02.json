@@ -1,0 +1,56 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "ラビフロ!!🐸🐰Vol.25 ゲスト「もち×ひちょり」【開催日 2025年02月02日 日曜日】",
+    "url": "https://twipla.jp/events/653455",
+    "startDate": "2025/02/02 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/197142972507997.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "大阪市中央区千日前1-7-7"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "【公式】🐸🐰ラビフロ!! 2024年もお",
+      "url": "https://twipla.jp/users/beat_frontier"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "【お陰様で６周年！】水曜日のヌマ vol.71 #水曜日のヌマ 【周年ＳＰ！】",
+    "url": "https://twipla.jp/events/651782",
+    "startDate": "2025/02/02 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/940039110119223.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "沼袋section9"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "水曜日のヌマ",
+      "url": "https://twipla.jp/users/suiyoubinonuma"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "2/2 アニソンNEXT 天神",
+    "url": "https://twipla.jp/events/647821",
+    "startDate": "2025/02/02 昼",
+    "description": "説明なし",
+    "image": "フライヤーなし",
+    "location": {
+      "@type": "Place",
+      "name": "福岡県福岡市中央区天神３丁目１−１２"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "🌏世界ぃの社長ぅ👔",
+      "url": "https://twipla.jp/users/Wop1932D"
+    }
+  }
+]

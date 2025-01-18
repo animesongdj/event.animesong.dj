@@ -1,0 +1,38 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "1月31日(金)開催　ちゃんとして！参拾伍叱目",
+    "url": "https://twipla.jp/events/657319",
+    "startDate": "2025/01/31 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2411/664856439971147.png",
+    "location": {
+      "@type": "Place",
+      "name": "東京都千代田区神田佐久間町2-10-25"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "ノブ＠映像作家・配信ディレクター・ちゃん",
+      "url": "https://twipla.jp/users/knob_twitt"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "【2025年1月31日(金)】【MILULARI発新人アニソンDJ中心アニクラ】YouNG LiON Episode.56【木曜日の練習会から週末の現場へ！】【参加表明で500円OFF！】",
+    "url": "https://twipla.jp/events/649394",
+    "startDate": "2025/01/31 夜",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/642883259468881.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "MILULARI Delight"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "なんばMILULARI(ミルラリ)",
+      "url": "https://twipla.jp/users/milulari"
+    }
+  }
+]

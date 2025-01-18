@@ -5,9 +5,10 @@ require 'fileutils'
 require 'json'
 require 'time'
 
-def scrape_twipla_search(query, page = 1)
+def scrape_twipla_search(query, existing_urls, page = 1)
   encoded_query = URI.encode_www_form_component(query)
   search_url = "https://twipla.jp/events/search/page~#{page}/keyword~#{encoded_query}/"
+  puts "Scraping page #{page}: #{search_url}"
   html = URI.open(search_url).read
   doc = Nokogiri::HTML.parse(html, nil, 'UTF-8')
 
@@ -19,11 +20,15 @@ def scrape_twipla_search(query, page = 1)
     link = link_element['href']
     event_url = "https://twipla.jp#{link}"
 
+    # 既存のJSON-LDと重複する場合は終了
+    return events if existing_urls.include?(event_url)
+
     location_element = event.css('span.status-body span.black').last
     next unless location_element # 場所がない場合はスキップ
     location = location_element.text.strip
 
     # 各イベントページにアクセスして詳細を取得
+    puts "Fetching event details: #{event_url}"
     event_html = URI.open(event_url).read
     event_doc = Nokogiri::HTML.parse(event_html, nil, 'UTF-8')
 
@@ -66,21 +71,34 @@ def scrape_twipla_search(query, page = 1)
     sleep 1
   end
 
-  events
+  # イベント件数が10件を下回る場合は終了
+  return events if events.size < 10
+
+  # 次へのリンクが切れている場合は終了
+  next_link = doc.at('a:contains("次へ")')
+  return events unless next_link
+
+  # 次のページを再帰的にスクレイピング
+  events + scrape_twipla_search(query, existing_urls, page + 1)
 end
 
 def generate_json_ld(events)
   FileUtils.mkdir_p('json-ld')
-  filename = "json-ld/twipla_events_#{Time.now.strftime('%Y-%m-%d')}.json"
-  File.open(filename, 'w') do |file|
-    file.puts JSON.pretty_generate(events)
+  events.group_by { |event| event[:startDate].split(' ').first.split('-').first(2).join('-') }.each do |date, events_on_date|
+    formatted_date = date.gsub('/', '-')
+    filename = "json-ld/twipla_events_#{formatted_date}.json"
+    File.open(filename, 'w') do |file|
+      file.puts JSON.pretty_generate(events_on_date)
+    end
+    puts "Generated JSON-LD file: #{filename}"
   end
 end
 
 if __FILE__ == $0
   query = 'アニソンDJ'
-  page = 1
-  events = scrape_twipla_search(query, page)
+  existing_events = Dir.glob('json-ld/*.json').flat_map { |file| JSON.parse(File.read(file)) } rescue []
+  existing_urls = existing_events.map { |event| event['url'] }
+  events = scrape_twipla_search(query, existing_urls)
   generate_json_ld(events)
-  puts "JSON-LD file generated successfully."
+  puts "JSON-LD files generated successfully."
 end

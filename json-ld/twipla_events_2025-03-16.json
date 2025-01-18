@@ -1,0 +1,38 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "3月16日日曜日12:00〜 AshtoroBista!! -西淀川区民ホール-",
+    "url": "https://twipla.jp/events/642908",
+    "startDate": "2025/03/16 11:30",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2411/447446330244408.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "西淀川区民ホール"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Ashtoro Bista!!",
+      "url": "https://twipla.jp/users/Ashtorobista"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "にじすて５周年24公演",
+    "url": "https://twipla.jp/events/660555",
+    "startDate": "2025/03/16 13:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/576271016695940.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "なんばMILULARI"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "にじちゃん@にじすて公式　次回1/19",
+      "url": "https://twipla.jp/users/nijisute_ofc"
+    }
+  }
+]

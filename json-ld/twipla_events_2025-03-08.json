@@ -1,0 +1,38 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "Seoul, My Soul #S_M_S#1～今日までの僕らを見つめていよう～ 3月7日(金深夜)",
+    "url": "https://twipla.jp/events/645136",
+    "startDate": "2025/03/08",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2411/453621116023958.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "月あかり夢てらす"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "⚔️りょう⚔️@wantの感情",
+      "url": "https://twipla.jp/users/Ryo_DJwant"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "萌え電波ソングオンリーイベント きゅんはい2",
+    "url": "https://twipla.jp/events/640138",
+    "startDate": "2025/03/08 13:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/490297239494710.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "Asakusa Stella"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "きゅんはい （萌え電波ソングオンリー）【",
+      "url": "https://twipla.jp/users/HAI_KYUN"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "J-POP、J-ROCKをバナナボンゴで流す会　Vol.4 1/24（金） #Jボ会",
+    "url": "https://twipla.jp/events/648474",
+    "startDate": "2025/01/24 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/790728047676955.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "池袋　バナナボンゴ"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "結城",
+      "url": "https://twipla.jp/users/yuki_r"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "Kimi@ni「∼今、君と聴きたいあにそん∼」",
+    "url": "https://twipla.jp/events/645190",
+    "startDate": "2025/01/24 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/723347103151696.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "新宿azito"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Kimi@ni~今、君と聴きたいアニソン",
+      "url": "https://twipla.jp/users/kimiani830"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "電脳塾ヲ presents ラスサビメドレーDJイベント「Last Spurt」【1/24 19:00～】",
+    "url": "https://twipla.jp/events/658922",
+    "startDate": "2025/01/24 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/675464639508618.png",
+    "location": {
+      "@type": "Place",
+      "name": "東京都千代田区神田佐久間町2-11 AOIビル2F"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "電脳塾ヲ ～ヲタク系DJグループ～",
+      "url": "https://twipla.jp/users/dennoujukuF"
+    }
+  }
+]

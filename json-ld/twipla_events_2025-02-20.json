@@ -1,0 +1,20 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "少年誌作品オンリーDJイベント＃少年サンダー",
+    "url": "https://twipla.jp/events/643149",
+    "startDate": "2025/02/20",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2411/938265305630069.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "アニソンDJカフェバー雷神"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "🥀🌃青柳ショウ 🦈⚡️",
+      "url": "https://twipla.jp/users/hikawabangdream"
+    }
+  }
+]

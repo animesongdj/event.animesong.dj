@@ -1,0 +1,20 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "アニクラ無法地帯一歩手前Vol.11  ミクの日らしいけども、あんまりボカロ流れないと思います",
+    "url": "https://twipla.jp/events/656581",
+    "startDate": "2025/03/09 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/134090189364134.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "東京都千代田区神田佐久間町２－１０－２５"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "シーランド@俺が楊菲菲の隣のパンダ",
+      "url": "https://twipla.jp/users/monokumaP"
+    }
+  }
+]

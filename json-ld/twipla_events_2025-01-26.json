@@ -1,0 +1,20 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "『オタクのギルドLv.5』2025年01月26日（日）１４：００オープン",
+    "url": "https://twipla.jp/events/648294",
+    "startDate": "2025/01/26 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/817806968215299.png",
+    "location": {
+      "@type": "Place",
+      "name": "船橋市前原西2-21-9"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "むぅ@オケオケオッケー👌",
+      "url": "https://twipla.jp/users/muu_404"
+    }
+  }
+]

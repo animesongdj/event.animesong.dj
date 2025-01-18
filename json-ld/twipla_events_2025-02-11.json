@@ -1,0 +1,38 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "㊗️初開催【ロックDJイベント】ロック一丁目一番地 Vol.1",
+    "url": "https://twipla.jp/events/648256",
+    "startDate": "2025/02/11 14:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/303718851484372.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "秋葉原　アニソンDJカフェ・バー雷神3F"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "AG",
+      "url": "https://twipla.jp/users/sakae_tsukasa"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "あるけみすと懐メロDAY",
+    "url": "https://twipla.jp/events/657122",
+    "startDate": "2025/02/11 20:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/89549363295675.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "東京都千代田区神田佐久間町２-１２-８"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "K（鳳凰／ガーフィル1059）",
+      "url": "https://twipla.jp/users/garfil1059_djk"
+    }
+  }
+]

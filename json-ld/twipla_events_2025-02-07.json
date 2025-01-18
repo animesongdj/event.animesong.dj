@@ -1,0 +1,38 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "だいたいわかるアニソンをDJがかけるイベント vol.36 #だいたいわかる",
+    "url": "https://twipla.jp/events/649263",
+    "startDate": "2025/02/07 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/786206478669725.png",
+    "location": {
+      "@type": "Place",
+      "name": "秋葉原 アニソンDJバー雷神"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "T-Junkiee a.k.a. Jun",
+      "url": "https://twipla.jp/users/t_junkiee_w_teq"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "【2025年2月7日(金)】【＃ライロア】Lions Roar Vol.2～GIRLS&XX男子？？～【アニクラヤングライオンNextStage！】【参加表明で500円OFF！】",
+    "url": "https://twipla.jp/events/648484",
+    "startDate": "2025/02/07 23:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/393784454816985.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "なんばMILULARI"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "DJタカマル",
+      "url": "https://twipla.jp/users/daru501"
+    }
+  }
+]

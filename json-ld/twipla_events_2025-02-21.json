@@ -1,0 +1,20 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "Akiba Sandbox #あきバコ vol.2 (秋葉原雷神) 2/21(金) 19:00~23:00",
+    "url": "https://twipla.jp/events/660257",
+    "startDate": "2025/02/21 19:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/976463169217570.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "秋葉原雷神"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Akiba Sandbox #あきバコ(",
+      "url": "https://twipla.jp/users/akioto_akiba"
+    }
+  }
+]

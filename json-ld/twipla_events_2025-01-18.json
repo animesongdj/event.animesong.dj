@@ -178,5 +178,59 @@
       "name": "スファ",
       "url": "https://twipla.jp/users/sufairosakururi"
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "HimejiアニクラGeneration VOL.6　　＃姫ジェネ",
+    "url": "https://twipla.jp/events/649271",
+    "startDate": "2025/01/18 22:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/45718835090377.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "RATSHALL姫路"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "HIMEJIアニクラGENERATION",
+      "url": "https://twipla.jp/users/hime_gene"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "1/18(土)22:00〜 救世主Ⅱ -メシアニ-",
+    "url": "https://twipla.jp/events/653142",
+    "startDate": "2025/01/18 22:00",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2501/97357898848174.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "千葉県千葉市中央区富士見２丁目１５−９　A&FLビル６F"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "らんぶる@time イベント広告部",
+      "url": "https://twipla.jp/users/gamblerumble_rt"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "【2025年1月18日(土)22:50~】【2010年までのいにしえのアニソンでエモくなる】第十七回 イニシエモーション~IniciEmotion~【参加表明で500円OFF】",
+    "url": "https://twipla.jp/events/646803",
+    "startDate": "2025/01/18 夜",
+    "description": "説明なし",
+    "image": "https://twipla.jp/imgs/2412/1086359760016.jpg",
+    "location": {
+      "@type": "Place",
+      "name": "MILULARI Delight"
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "イニシエモーション~IniciEmoti",
+      "url": "https://twipla.jp/users/iniciemotion"
+    }
   }
 ]
